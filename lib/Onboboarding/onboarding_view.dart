@@ -31,7 +31,7 @@ class _OnboardingViewState extends State<OnboardingView> {
             //Skip Button
             TextButton(
                 onPressed: ()=>pageController.jumpToPage(controller.items.length-1),
-                child: const Text("Skip")),
+                child: const Text("Sauter")),
 
             //Indicator
             SmoothPageIndicator(
@@ -50,7 +50,7 @@ class _OnboardingViewState extends State<OnboardingView> {
             TextButton(
                 onPressed: ()=>pageController.nextPage(
                     duration: const Duration(milliseconds: 600), curve: Curves.easeIn),
-                child: const Text("Next")),
+                child: const Text("Suivant")),
 
 
           ],
@@ -105,7 +105,7 @@ class _OnboardingViewState extends State<OnboardingView> {
             if(!mounted)return;
             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Home()));
           },
-          child: const Text("Get started",style: TextStyle(color: Colors.white),)),
+          child: const Text("Commençons",style: TextStyle(color: Colors.white),)),
     );
  }
 }

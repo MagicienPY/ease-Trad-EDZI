@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'registration.dart'; // Importez la page d'inscription
+import 'login.dart'; // Importez la page de connexion
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -7,13 +8,35 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Accueil'),
+      ),
       body: Center(
-        child: TextButton(
-          onPressed: ()async{
-           final prefs = await SharedPreferences.getInstance();
-           prefs.setBool("onboarding", false);
-          },
-          child: const Text("Enable onboarding"),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            ElevatedButton(
+              onPressed: () {
+                // Naviguer vers la page d'inscription
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Registration()),
+                );
+              },
+              child: const Text('S\'INSCRIRE'),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                // Naviguer vers la page de connexion
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Login()),
+                );
+              },
+              child: const Text('SE CONNECTER'),
+            ),
+          ],
         ),
       ),
     );
